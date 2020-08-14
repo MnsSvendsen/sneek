@@ -25,4 +25,13 @@ public class CharacterController : MonoBehaviour
     {
         rb.MovePosition(rb.position + moveVelocity * Time.fixedDeltaTime);
     }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.name == "Enemy")
+        {
+            Debug.Log("Bang");
+            Destroy(collision.gameObject);
+        }
+    }
 }
